@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+        }
+
+        /* First Page Styles */
+        .page {
+            min-height: 100vh;
+            display: none;
+            position: relative;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        #page1 {
+            background: linear-gradient(135deg, #2d1b4e 0%, #4a2d6a 50%, #6b4d8a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating cute ghosts and hearts */
+        .cute-element {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: cuteFloat 6s infinite ease-in-out;
+            opacity: 0.7;
+        }
+
+        @keyframes cuteFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .cute-element:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .cute-element:nth-child(2) { left: 80%; top: 30%; animation-delay: 1s; font-size: 2rem; }
+        .cute-element:nth-child(3) { left: 15%; top: 70%; animation-delay: 2s; font-size: 3rem; }
+        .cute-element:nth-child(4) { left: 85%; top: 80%; animation-delay: 3s; }
+        .cute-element:nth-child(5) { left: 50%; top: 10%; animation-delay: 1.5s; font-size: 2.2rem; }
+        .cute-element:nth-child(6) { left: 30%; top: 85%; animation-delay: 2.5s; }
+        .cute-element:nth-child(7) { left: 65%; top: 15%; animation-delay: 1s; font-size: 1.8rem; }
+        .cute-element:nth-child(8) { left: 20%; top: 50%; animation-delay: 3.5s; font-size: 2.3rem; }
+
+        /* Twinkling stars */
+        .landing-star {
+            position: absolute;
+            color: #ffd700;
+            font-size: 1.5rem;
+            animation: starTwinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        .landing-star:nth-child(9) { left: 8%; top: 12%; animation-delay: 0s; }
+        .landing-star:nth-child(10) { left: 90%; top: 25%; animation-delay: 0.5s; }
+        .landing-star:nth-child(11) { left: 45%; top: 8%; animation-delay: 1s; }
+        .landing-star:nth-child(12) { left: 75%; top: 60%; animation-delay: 1.5s; }
+
+        .content-box {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.5), 0 0 40px rgba(138, 43, 226, 0.3);
+            animation: fadeInScale 1s ease-out;
+            border: 3px solid #ff6b9d;
+            position: relative;
+        }
+
+        .content-box::before {
+            content: '🎃';
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            font-size: 3rem;
+            animation: cuteFloat 3s ease-in-out infinite;
+        }
+
+        .content-box::after {
+            content: '👻';
+            position: absolute;
+            top: -25px;
+            right: 30px;
+            font-size: 3rem;
+            animation: cuteFloat 3s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .content-box h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .japanese-title {
+            font-size: 2.2rem;
+            color: #ff6b9d;
+            margin-bottom: 15px;
+            font-weight: normal;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+        }
+
+        .special-note {
+            font-size: 1.1rem;
+            color: #8a2be2;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .content-box p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+
+        .enter-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #8a2be2 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            font-weight: bold;
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        /* Second Page - Spooky Sweet November */
+        #page2 {
+            background: linear-gradient(180deg, #1a1a2e 0%, #2d1b4e 50%, #16213e 100%);
+            min-height: 100vh;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating ghosts */
+        .ghost {
+            position: fixed;
+            font-size: 3rem;
+            animation: ghostFloat 8s ease-in-out infinite;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        @keyframes ghostFloat {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-30px) translateX(20px); }
+            50% { transform: translateY(-10px) translateX(-20px); }
+            75% { transform: translateY(-40px) translateX(10px); }
+        }
+
+        .ghost:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; }
+        .ghost:nth-child(2) { right: 10%; top: 20%; animation-delay: 2s; }
+        .ghost:nth-child(3) { left: 15%; bottom: 20%; animation-delay: 4s; }
+        .ghost:nth-child(4) { right: 20%; bottom: 30%; animation-delay: 1s; }
+
+        /* Bats flying */
+        .bat {
+            position: fixed;
+            font-size: 2rem;
+            animation: batFly 12s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes batFly {
+            0% { left: -50px; top: 15%; }
+            50% { top: 45%; }
+            100% { left: 110%; top: 25%; }
+        }
+
+        .bat:nth-child(5) { animation-delay: 0s; }
+        .bat:nth-child(6) { animation-delay: 4s; animation-duration: 15s; }
+        .bat:nth-child(7) { animation-delay: 8s; animation-duration: 10s; }
+
+        /* Stars twinkling */
+        .star {
+            position: fixed;
+            color: #ffd700;
+            animation: twinkle 2s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .star:nth-child(8) { left: 10%; top: 5%; animation-delay: 0s; }
+        .star:nth-child(9) { left: 30%; top: 15%; animation-delay: 0.5s; }
+        .star:nth-child(10) { right: 15%; top: 8%; animation-delay: 1s; }
+        .star:nth-child(11) { right: 35%; top: 20%; animation-delay: 1.5s; }
+        .star:nth-child(12) { left: 50%; top: 10%; animation-delay: 0.8s; }
+
+        .november-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .spooky-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .spooky-header h1 {
+            font-size: 3.5rem;
+            color: #ff6b9d;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5), 0 0 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .spooky-header p {
+            font-size: 1.4rem;
+            color: #c0a0d0;
+            font-style: italic;
+        }
+
+        /* Haunted photo frames */
+        .haunted-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            min-height: 500px;
+        }
+
+        .haunted-frame {
+            position: relative;
+            animation: frameAppear 1s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.8) rotate(-5deg);
+        }
+
+        .haunted-frame:nth-child(1) { animation-delay: 0.2s; }
+        .haunted-frame:nth-child(2) { animation-delay: 0.4s; transform: scale(0.8) rotate(5deg); }
+        .haunted-frame:nth-child(3) { animation-delay: 0.6s; transform: scale(0.8) rotate(-3deg); }
+        .haunted-frame:nth-child(4) { animation-delay: 0.8s; transform: scale(0.8) rotate(4deg); }
+        .haunted-frame:nth-child(5) { animation-delay: 1s; transform: scale(0.8) rotate(-2deg); }
+        .haunted-frame:nth-child(6) { animation-delay: 1.2s; transform: scale(0.8) rotate(3deg); }
+
+        @keyframes frameAppear {
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(var(--rotate, 0deg));
+            }
+        }
+
+        .haunted-frame:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            transition: all 0.3s ease;
+        }
+
+        .frame-container {
+            width: 200px;
+            height: 250px;
+            background: linear-gradient(135deg, #3a2d5a 0%, #2a1f3d 100%);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 
+                        inset 0 0 20px rgba(255, 107, 157, 0.2);
+            position: relative;
+            border: 3px solid #4a3d6a;
+        }
+
+        .frame-container::before {
+            content: '🕸️';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        .frame-container::after {
+            content: '🕷️';
+            position: absolute;
+            bottom: -5px;
+            left: -5px;
+            font-size: 1.2rem;
+        }
+
+        .photo-display {
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .photo-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            font-size: 3rem;
+            color: #4a3d6a;
+        }
+
+        /* Poem section */
+        .poem-section {
+            max-width: 700px;
+            margin: 60px auto 30px;
+            background: rgba(58, 45, 90, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(255, 107, 157, 0.3),
+                        inset 0 0 30px rgba(255, 107, 157, 0.1);
+            border: 2px solid #ff6b9d;
+            animation: fadeInScale 1s ease-out 1.5s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        .poem-section::before {
+            content: '🎃';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 2.5rem;
+        }
+
+        .poem-section::after {
+            content: '👻';
+            position: absolute;
+            top: -20px;
+            right: 30px;
+            font-size: 2.5rem;
+        }
+
+        .poem-section h2 {
+            color: #ff6b9d;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+        }
+
+        .poem {
+            color: #f0e6ff;
+            font-size: 1.2rem;
+            line-height: 2;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .poem-line {
+            margin-bottom: 10px;
+        }
+
+        .message {
+            color: #c0a0d0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .back-btn {
+            display: block;
+            margin: 30px auto 0;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .frame-container {
+                width: 150px;
+                height: 200px;
+            }
+            
+            .spooky-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .poem {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Landing Page -->
+    <div id="page1" class="page active">
+        <div class="cute-element">👻💕</div>
+        <div class="cute-element">🎃💖</div>
+        <div class="cute-element">👻💗</div>
+        <div class="cute-element">🍂💕</div>
+        <div class="cute-element">🎃💝</div>
+        <div class="cute-element">👻💓</div>
+        <div class="cute-element">🍁💕</div>
+        <div class="cute-element">🎃💞</div>
+        <div class="landing-star">⭐</div>
+        <div class="landing-star">⭐</div>
+        <div class="landing-star">⭐</div>
+        <div class="landing-star">⭐</div>
+        
+        <div class="content-box">
+            <h1>10 Monthsary 🎃</h1>
+            <div class="japanese-title">10ヶ月記念日おめでとう！</div>
+            <div class="special-note">✨ Our Relationship's First Halloween ✨</div>
+            <p>To my boo... literally and figuratively 👻💕</p>
+            <button class="enter-btn" onclick="showPage2()">Enter Our Spooky Story 🌙</button>
+        </div>
+    </div>
+
+    <script>
+        function showPage2() {
+            window.location.href = 'page2.html';
+        }
+
+        function showPage1() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
