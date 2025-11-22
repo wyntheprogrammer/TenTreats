@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 🎃💕</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family:'Georgia',serif;
+    background: linear-gradient(135deg,#2d1b4e 0%,#4a2d6a 50%,#6b4d8a 100%);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    padding:20px;
+}
+
+.japanese-title {
+    font-size: 1.2rem;
+    color: #ff6b9d;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+}
+
+.special-note {
+    font-size: 1.1rem;
+    color: #8a2be2;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Floating decorations */
+.decoration {position:fixed;font-size:2.5rem;animation:float 6s ease-in-out infinite;opacity:0.5;z-index:1;}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-30px) rotate(5deg);}}
+.decoration:nth-child(1){left:5%; top:10%; animation-delay:0s;}
+.decoration:nth-child(2){right:8%; top:15%; animation-delay:1s;}
+.decoration:nth-child(3){left:10%; bottom:20%; animation-delay:2s;}
+.decoration:nth-child(4){right:12%; bottom:25%; animation-delay:1.5s;}
+.decoration:nth-child(5){left:45%; top:8%; animation-delay:3s;}
+
+/* Stars */
+.star{position:fixed;color:#ffd700;font-size:1.2rem;animation:twinkle 2s ease-in-out infinite;z-index:1;}
+@keyframes twinkle{0%,100%{opacity:0.3; transform:scale(1);}50%{opacity:1; transform:scale(1.2);}}
+
+/* Card styling */
+.card-container{
+    background: rgba(255,255,255,0.95);
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(255,107,157,0.5),0 0 40px rgba(138,43,226,0.3);
+    border:4px solid #ff6b9d;
+    text-align:center;
+    position:relative;
+    z-index:10;
+    max-width:500px;
+}
+
+.card-container::before{content:'🎃';position:absolute;top:-25px;left:30px;font-size:3rem;animation:float 3s ease-in-out infinite;}
+.card-container::after{content:'👻';position:absolute;top:-25px;right:30px;font-size:3rem;animation:float 3s ease-in-out infinite;animation-delay:1.5s;}
+
+h1{font-size:2.5rem;background:linear-gradient(135deg,#ff6b9d 0%,#c94b7d 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 20px rgba(255,107,157,0.3);margin-bottom:15px;}
+.subtitle{font-size:1.1rem;color:#8a2be2;margin-bottom:25px;font-style:italic;}
+
+/* Photo frame */
+.haunted-frame{display:inline-block; margin:20px 0;}
+.frame-container {
+    display: inline-block;
+    background: linear-gradient(135deg,#3a2d5a 0%,#2a1f3d 100%);
+    padding: 5px; /* optional border spacing */
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,107,157,0.2);
+    position: relative;
+    border: 3px solid #4a3d6a;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.photo-display {
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.photo-display img {
+    display: block;
+    max-width: 100%;
+    height: auto; /* keeps aspect ratio */
+    border-radius: 5px;
+}
+
+.frame-container::before{content:'🕸️';position:absolute;top:-10px;right:-10px;font-size:2rem;opacity:0.7;}
+.frame-container::after{content:'🕷️';position:absolute;bottom:-5px;left:-5px;font-size:1.3rem;}
+
+
+/* Messages */
+.message{margin-top:25px;color:#555;font-size:1rem;line-height:1.6;font-style:italic;}
+.flip-note{margin-top:20px;padding:12px 20px;background:rgba(138,43,226,0.1);border-radius:15px;border:2px solid #ff6b9d;color:#8a2be2;font-size:0.95rem;font-weight:bold;}
+
+@media (max-width:768px){
+    .card-container{padding:30px 25px;}
+    h1{font-size:2rem;}
+    .frame-container{width:240px;height:300px;}
+    .card-container::before,.card-container::after{font-size:2.5rem;top:-20px;}
+}
+</style>
+</head>
+<body>
+    <div class="decoration">👻💕</div>
+    <div class="decoration">🎃💖</div>
+    <div class="decoration">🦇💗</div>
+    <div class="decoration">🍂💕</div>
+    <div class="decoration">🍁💝</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+
+    <div class="card-container">
+        <div class="content-box">
+            <h1>10 Monthsary 🎃</h1>
+            <div class="japanese-title">10ヶ月記念日おめでとう！</div>
+            <div class="special-note">✨ Our Relationship's First Halloween ✨</div>
+        </div>
+
+        <!-- Haunted Frame -->
+        <div class="haunted-frame">
+            <div class="frame-container">
+                <div class="photo-display">
+                    <img src="3.jpg" alt="Memory">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
